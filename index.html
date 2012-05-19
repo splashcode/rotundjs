@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Rotund.js</title>
+        <style>
+            html, body{
+                margin: 0;
+                padding: 0;
+                background-color: #333;
+                font: 1em/1.4 'Trebuchet MS', 'Lucida San', 'Lucida Grande', 'Lucida Sans Unicode', sans-sherif;
+                color: #FFF;
+            }
+            
+            header{
+                padding: 60px 0 40px 0;
+                background-color: #F5F5F5;                
+                box-shadow: 0 2px 50px rgba(0, 0, 0, 0.6);
+                color: #333;
+            }
+            
+            h1{
+                margin: 0;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', Charcoal, sans-sherif;
+                font-size: 4em;
+                color: hsl(22, 90%, 65%);
+                text-shadow: 3px 3px 0 #D5D5D5;
+                letter-spacing: 0.1em;
+            }
+            
+            h2{
+                margin: 20px 0 40px 0;
+                font-size: 1.6em;
+                color : #666;
+            }
+            
+            h3{
+                margin: 20px 0;
+                font-size: 1.2em;
+                border-bottom : 1px dotted #AAA;
+            }
+            
+            #content{
+                padding: 20px 0;
+            }
+            
+            .typeChart{
+                margin-bottom: 40px;
+            }
+            
+            .defChart{
+                margin-left: 340px;
+            }
+            
+            .btn{
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: hsl(82, 0%, 50%); 
+                border-radius: 4px;
+                box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+                color: #FFF;
+                text-decoration: none;
+            }
+            
+            .btn:hover{
+                background-color: hsl(82, 0%, 56%);
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+            }
+            
+            .btn:active{
+                box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            }
+            
+            .btn.green{
+                background-color: hsl(82, 52%, 50%); 
+            }
+            
+            .btn.green:hover{
+                background-color: hsl(82, 52%, 56%); 
+            }
+            
+            .toLeft{
+                float: left;
+            }
+            
+            .center{
+                text-align: center;
+            }
+            
+            .fixedWidth{
+                margin: auto;
+                width: 960px;
+            }
+            
+            .clearfix:after {
+                content: ".";
+                display: block;
+                clear: both;
+                visibility: hidden;
+                line-height: 0;
+                height: 0;
+            }
+
+            .clearfix {
+                display: block;
+            }
+        </style>
+        
+        <link rel="stylesheet" href="vendor/rainbow/blackboard.css">
+    </head>   
+    <body>
+        
+        <header>
+            <div class="fixedWidth center">
+                <hgroup>
+                    <h1>Rotund.js</h1>
+                    <h2>The javascript library for donuts style charting</h2>
+                </hgroup>
+                <a href="https://github.com/splashcode/rotundjs/rotund.min.js" class="btn green">Download (v0.1)</a>
+                <a href="https://github.com/splashcode/rotundjs" class="btn">View project on GitHub</a>
+            </div>
+        </header>
+        
+        <div id="content" class="fixedWidth">
+            <div class="typeChart clearfix">
+                <h3>Type 1 : one donut, multiples segments</h3>
+                <div id="chart1" class="chart toLeft"></div>
+                <div class="defChart">
+                    <p>
+
+                    </p>
+<pre><code data-language="javascript">var chart1 = new Rotund({
+    container : 'chart1', 
+    tooltip : {
+        defaultText : 'Who &lt;br/&gt; ate &lt;br/&gt; donuts?', 
+        color : '#FFF'
+    },
+    series : [{
+        name : 'people',
+        data : [{
+            name : 'John',
+            value : 6
+        },{
+            name : 'Jim',
+            value : 4
+        }]
+    }]
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="typeChart clearfix">
+                <h3>Type 2 : multiples donuts, one segment by donut</h3>
+                <div id="chart2" class="chart toLeft"></div>
+                <div class="defChart">
+                    <p>
+
+                    </p>
+<pre><code data-language="javascript">var chart2 = new Rotund({
+    container : 'chart2', 
+    tooltip : {
+        defaultText : 'Who &lt;br/&gt; ate &lt;br/&gt; donuts?', 
+        color : '#FFF'
+    },
+    series : [{
+        name : 'John',
+        data : [{
+            name : 'John',
+            value : 6
+        }]
+    },{
+        name : 'Jim',
+        data : [{
+            name : 'Jim',
+            value : 4
+        }]
+    }]
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="typeChart clearfix">
+                <h3>Type 3 : multiples donuts, multiples segments by donut</h3>
+                <div id="chart3" class="chart toLeft"></div>
+                <div class="defChart">
+                    <p>
+
+                    </p>
+<pre><code data-language="javascript">var chart3 = new Rotund({
+    container : 'chart3', 
+    tooltip : {
+        defaultText : 'And what perfume?', 
+        color : '#FFF',
+        template : '&lt;b&gt;{{serie}}&lt;/b&gt; ate &lt;b&gt;{{value}}&lt;/b&gt; &lt;br/&gt; {{name}} donut(s)'
+    },
+    series : [{
+        name : 'John',
+        data : [{
+            name : 'chocolat',
+            value : 3
+        },{
+            name : 'peanut',
+            value : 2
+        },{
+            name : 'vanilla',
+            value : 1
+        }]
+    },{
+        name : 'Jim',
+        data : [{
+            name : 'chocolat',
+            value : 2
+        },{
+            name : 'peanut',
+            value : 2
+        }]
+    }]
+});</code></pre>
+                </div>
+            </div>
+            
+            <div>
+                <h3>Requiere</h3>
+                <p>This librairy use SVG, all modern browsers (IE > 8) can show this charts.</p>
+            </div>
+        </div>
+        
+        <script src="vendor/rainbow/rainbow.min.js"></script>
+        <script src="vendor/rainbow/generic.js"></script>
+        <script src="vendor/rainbow/javascript.js"></script>
+        <script src="build/rotund.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
